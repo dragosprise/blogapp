@@ -17,6 +17,8 @@
 
                             <x-layouts.sidebar-link href="{{ route('admin.tags.index') }}" icon='fas-tag'
                                 :active="request()->routeIs('tags.index*')">Tags</x-layouts.sidebar-link>
+                            <x-layouts.sidebar-link href="{{ route('admin.comments.index') }}" icon='fas-tag'
+                                                    :active="request()->routeIs('comments.index*')">Comments</x-layouts.sidebar-link>
                         </ul>
                     </nav>
                 </div>

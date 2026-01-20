@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -23,5 +24,20 @@ class PostController extends Controller
         return view('posts.show', [
             'post' => $post,
         ]);
+    }
+    public function storeComment(Request $request, Post $post)
+    {
+        $request->validate([
+            'body' => 'required|min:3|max:1000'
+        ]);
+
+        auth()->user()->comments()->create([
+            'post_id' => $post->id,
+            'body' => $request->body
+        ]);
+
+        return redirect()->route('posts.show', $post->id)
+
+            ->with('success', 'Comentariu adăugat!');
     }
 }

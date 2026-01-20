@@ -11,6 +11,8 @@ use Illuminate\View\View;
 
 class PasswordController extends Controller
 {
+
+
     public function edit(Request $request): View
     {
         return view('settings.password', [

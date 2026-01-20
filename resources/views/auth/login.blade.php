@@ -1,7 +1,11 @@
 <x-layouts.auth :title="__('Login')">
     <!-- Login Card -->
+
     <div
         class="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <a href="/">
+            <img src="/images/poza2.webp" alt="Descriere" class=" p-6 object-cover rounded-lg">
+        </a>
         <div class="p-6">
             <div class="text-center mb-6">
                 <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-100">{{ __('Login') }}</h1>

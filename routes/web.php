@@ -16,8 +16,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('post/{id}', [PostController::class, 'show'])->name('posts.show');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::view('about', 'pages.about')->name('about');
+Route::post('posts/{post}/comments', [PostController::class, 'storeComment'])->middleware('auth')->name('posts.comments.store');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('settings/profile', [Settings\ProfileController::class, 'edit'])->name('settings.profile.edit');
@@ -33,6 +34,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::resource('categories', Admin\CategoryController::class);
     Route::resource('tags', Admin\TagController::class);
     Route::resource('posts', Admin\PostController::class);
+    Route::resource('comments',Admin\CommentController::class);
 });
+
 
 require __DIR__.'/auth.php';

@@ -11,6 +11,8 @@ use App\Models\Tag;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -22,6 +24,14 @@ class PostController extends Controller
             'posts' => $posts,
         ]);
     }
+    public function show(Post $post)
+    {
+        $post->load('comments.user');
+
+        return view('posts.show', compact('post'));
+    }
+
+
 
     public function create(): View
     {
@@ -111,4 +121,5 @@ class PostController extends Controller
         return redirect()->route('admin.posts.index')
             ->with('status', __('Post deleted successfully.'));
     }
+
 }
