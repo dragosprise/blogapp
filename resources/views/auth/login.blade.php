@@ -4,7 +4,7 @@
     <div
         class="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden">
         <a href="/">
-            <img src="/images/poza2.webp" alt="Descriere" class=" p-6 object-cover rounded-lg">
+            <img src="{{asset('/images/poza2.webp')}}" alt="Descriere" class=" p-6 object-cover rounded-lg">
         </a>
         <div class="p-6">
             <div class="text-center mb-6">

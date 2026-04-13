@@ -19,6 +19,12 @@
                                 :active="request()->routeIs('tags.index*')">Tags</x-layouts.sidebar-link>
                             <x-layouts.sidebar-link href="{{ route('admin.comments.index') }}" icon='fas-tag'
                                                     :active="request()->routeIs('comments.index*')">Comments</x-layouts.sidebar-link>
+
+                            <x-layouts.sidebar-link href="{{ route('admin.competitions.index') }}" icon='fas-trophy'
+                                :active="request()->routeIs('admin.competitions.*')">Competitions</x-layouts.sidebar-link>
+
+                            <x-layouts.sidebar-link href="{{ route('admin.races.index') }}" icon='fas-flag-checkered'
+                                :active="request()->routeIs('admin.races.*')">Races</x-layouts.sidebar-link>
                         </ul>
                     </nav>
                 </div>

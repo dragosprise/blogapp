@@ -23,7 +23,8 @@ class PostFactory extends Factory
         return [
             'title' => fake()->sentence(),
             'post' => fake()->paragraph(),
-            'image' => fake()->imageUrl(),
+            // The app expects a filename stored under storage/app/public/uploads (served via /storage/uploads/*).
+            'image' => fake()->randomElement(['poza.png', 'poza2.webp', 'poza3.png']),
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
         ];

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RaceController;
 use App\Http\Controllers\Settings;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,10 @@ Route::get('/', function () {
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+
+Route::get('curse', [RaceController::class, 'index'])->name('races.index');
+Route::get('curse/{race}', [RaceController::class, 'show'])->name('races.show');
+
 Route::view('about', 'pages.about')->name('about');
 Route::post('posts/{post}/comments', [PostController::class, 'storeComment'])->middleware('auth')->name('posts.comments.store');
 
@@ -29,12 +34,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/appearance', [Settings\AppearanceController::class, 'edit'])->name('settings.appearance.edit');
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::view('/', 'dashboard')->name('dashboard');
     Route::resource('categories', Admin\CategoryController::class);
     Route::resource('tags', Admin\TagController::class);
     Route::resource('posts', Admin\PostController::class);
-    Route::resource('comments',Admin\CommentController::class);
+    Route::resource('comments', Admin\CommentController::class);
+    Route::resource('competitions', Admin\CompetitionController::class);
+    Route::resource('races', Admin\RaceController::class);
 });
 
 

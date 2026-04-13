@@ -24,7 +24,7 @@
     .bg-sidebar {
         background-color: hsl(var(--sidebar-background));
     }
-    
+
     .bg-sidebar-accent {
         background-color: hsl(var(--sidebar-accent));
     }
@@ -39,6 +39,16 @@
 
     .hover\:text-sidebar-accent-foreground:hover {
         color: hsl(var(--sidebar-accent-foreground));
+    }
+    .nav-link{
+       @apply text-white px-3 py-2 text-sm font-medium
+    }
+    .nav-link:hover{
+        @apply
+        underline
+        decoration-4
+        underline-offset-8
+        decoration-red-600
     }
 }
 
@@ -128,3 +138,4 @@
 .dark .custom-file-input:active::before {
     background: #4b5563;
 }
+

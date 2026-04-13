@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -10,10 +12,35 @@ class PostController extends Controller
 {
     public function index(): View
     {
-        $posts = Post::with('tags', 'category')->latest()->simplePaginate(10);
+        $featuredPost = Post::with('tags', 'category')->latest()->first();
+
+        $postsQuery = Post::with('tags', 'category')->latest();
+        if ($featuredPost) {
+            $postsQuery->whereKeyNot($featuredPost->getKey());
+        }
+
+        $posts = $postsQuery->simplePaginate(10);
+
+        $trendingPosts = Post::with('category')->latest()->take(5)->get();
+
+        $categories = Category::query()
+            ->withCount('posts')
+            ->orderByDesc('posts_count')
+            ->take(8)
+            ->get();
+
+        $tags = Tag::query()
+            ->withCount('posts')
+            ->orderByDesc('posts_count')
+            ->take(10)
+            ->get();
 
         return view('posts.index', [
             'posts' => $posts,
+            'featuredPost' => $featuredPost,
+            'trendingPosts' => $trendingPosts,
+            'categories' => $categories,
+            'tags' => $tags,
         ]);
     }
 
