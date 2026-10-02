@@ -1,79 +1,49 @@
-# Laravel Roadmap: Beginner Personal Blog with LaravelDaily Starter Kit
+# 🏎️ Romanian Karting Blog & Learning Hub
 
-This is an example demo project that implements majority of the topics required in [Laravel Roadmap Beginner Level](https://laraveldaily.com/roadmap-learning-path):
+[![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Livewire](https://img.shields.io/badge/Livewire-488038?style=for-the-badge&logo=livewire&logoColor=white)](https://laravel-livewire.com/)
 
-**Routing and Controllers: Basics**
-
-- Callback Functions and Route::view()
-- Routing to a Single Controller Method
-- Route Parameters
-- Route Naming
-- Route Groups
-
-**Blade Basics**
-
-- Displaying Variables in Blade
-- Blade If-Else and Loop Structures
-- Blade Loops
-- Layout: @include, @extends, @section, @yield
-- Blade Components
-
-**Auth Basics**
-
-- Starter Kits: [Laravel Daily Starter Kit](https://github.com/LaravelDaily/starter-kit) (Tailwind, Blade)
-- Default Auth Model and Access its Fields from Anywhere
-- Check Auth in Controller / Blade
-- Auth Middleware
-
-**Database Basics**
-
-- Database Migrations
-- Basic Eloquent Model and MVC: Controller -> Model -> View
-- Eloquent Relationships: belongsTo / hasMany / belongsToMany
-- Eager Loading and N+1 Query Problem
-
-**Full Simple CRUD**
-
-- Route Resource and Resourceful Controllers
-- Forms, Validation and Form Requests
-- File Uploads and Storage Folder Basics
-- Table Pagination
-
-This demo project is using [LaravelDaily Starter Kit](https://github.com/LaravelDaily/starter-kit) (Tailwind CSS) as an Auth Starter Kit.
+A specialized content platform and blog dedicated to the Romanian karting scene. Designed to promote local motorsport, provide learning roadmaps for aspiring drivers, cover race events, and publish technical guides on kart setup, maintenance, and driving techniques.
 
 ---
 
-## Images
+## 📌 Project Context & Credits
 
-![](https://laraveldaily.com/uploads/2025/06/roadmap-starter-kit-homepage.png)
-
-![](https://laraveldaily.com/uploads/2025/06/roadmap-starter-kit-post.png)
-
-![](https://laraveldaily.com/uploads/2025/06/roadmap-starter-kit-dashboard.png)
-
-![](https://laraveldaily.com/uploads/2025/06/roadmap-starter-kit-posts-list.png)
+This project was built and customized using the [Laravel Daily Roadmap Learning Path](https://laraveldaily.com/roadmap-learning-path) template as a foundational architecture, tailored specifically for structured motorsport content delivery, categories, and interactive learning guides.
 
 ---
 
-## How to use
+## ✨ Key Features
 
-- Clone the repository with **git clone**
-- Copy **.env.example** file to **.env** and edit database credentials there
-- Run **composer install**
-- Run **npm install**
-- Run **npm run build**
-- Run **php artisan key:generate**
-- Run **php artisan migrate --seed** (it has some seeded data for your testing)
-- That's it: launch the main URL.
-- You can login to manage articles with default credentials __test@example.com__ - **password**
-
-## License
-
-Basically, feel free to use and re-use any way you want.
+- **Motorsport Articles & News:** Coverage of local Romanian karting competitions, team highlights, and track updates.
+- **Structured Learning Paths:** Step-by-step guides for beginner to senior kart drivers covering racing lines, setup tuning, and equipment.
+- **Category & Tag Filtering:** Easy navigation through technical guides, race reports, kart mechanics, and driver physical preparation.
+- **Admin Management Panel:** Content management dashboard for creating, editing, and scheduling blog posts and learning modules.
 
 ---
 
-## More from our LaravelDaily Team
+## 🛠️ Tech Stack
 
-- Subscribe to our [YouTube channel Laravel Daily](https://www.youtube.com/channel/UCTuplgOBi6tJIlesIboymGA)
-- Enroll in our [Laravel Online Courses](https://laraveldaily.com/)
+- **Backend:** PHP 8.2+, Laravel Framework
+- **Frontend / UI:** Laravel Blade, Livewire, Tailwind CSS, Alpine.js
+- **Database:** MySQL
+- **Asset Bundling:** Vite
+
+---
+
+## 📂 Project Structure Overview
+
+```text
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/     # Blog & Roadmap routing handlers
+│   │   └── Livewire/        # Dynamic content components & filters
+│   └── Models/              # Post, Category, Roadmap & Tag Models
+├── database/
+│   ├── migrations/          # Database schema setup
+│   └── seeders/             # Initial blog categories & sample posts
+└── resources/
+    ├── views/               # Blade views & layout templates
+    └── css / js/            # Tailwind styles & client-side scripts
